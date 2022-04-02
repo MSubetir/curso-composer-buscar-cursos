@@ -1,0 +1,39 @@
+{
+    "name": "msubetir/buscador-cursos",
+    "description": "alura curso 1 php avancado",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Msubetir\\BuscadorCursos\\": "src/"
+        },
+        "classmap": ["./Teste.php"],
+        "files": ["./functions.php"]
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^6.5",
+        "symfony/dom-crawler": "^4.4",
+        "symfony/css-selector": "^4.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "8",
+        "squizlabs/php_codesniffer": "^3.6",
+        "phan/phan": "^5.3"
+    },
+    "scripts": {
+        "test": "phpunit tests\\TestBuscadorDeCursos.php",
+        "cs": "phpcs --standard=PSR12 src/",
+        "phan": "phan --allow-polyfill-parser",
+        "ls": "dir",
+        "check": [
+            "@phan",
+            "@cs",
+            "@test"
+        ],
+        "post-update-cmd": [
+            "@check"
+        ]
+    },
+    "scripts-descriptions": {
+        "check": "Roda as verificações do código. PHAN, PHPCS e PHPUNIT"
+    }
+}
